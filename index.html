@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cherry Gloss Resin | La perfección de lo transparente</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* === VARIABLES DE COLOR === */
+        :root {
+            --rosa-claro: #F4B4C8;
+            --beige: #DACCA9;
+            --cereza: #DA5D72;
+            --rosa-intenso: #ED7691;
+            --blanco: #ffffff;
+            --fondo-gris: #fafafa;
+            --texto-oscuro: #2c2c2c;
+        }
+
+        /* === RESET & ESTILOS GLOBALES === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Bloqueo dinámico mediante JS */
+        body.bloqueado {
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        body.desbloqueado {
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--texto-oscuro);
+            background-color: var(--fondo-gris);
+            line-height: 1.6;
+        }
+
+        /* Transición suave cuando se activa el scroll manual programado */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--cereza);
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* === EFECTO RESINA (GLOSSY) === */
+        .glossy-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px 0 rgba(218, 93, 114, 0.12);
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--rosa-intenso);
+            color: var(--blanco);
+            box-shadow: 0 4px 15px rgba(237, 118, 145, 0.35);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--cereza);
+            transform: scale(1.03);
+        }
+
+        /* === NAVEGACIÓN FIXED === */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.2rem 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.03);
+        }
+
+        nav .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--cereza);
+        }
+
+        .menu-toggle {
+            font-size: 1.6rem;
+            color: var(--cereza);
+            cursor: pointer;
+            z-index: 1001;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-links {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            flex-direction: column;
+            align-items: center;
+            gap: 1.8rem;
+            padding: 2.5rem 0;
+            border-bottom: 3px solid var(--rosa-claro);
+        }
+
+        .nav-links.active {
+            display: flex;
+        }
+
+        .nav-links a {
+            color: var(--texto-oscuro);
+            font-weight: 500;
+            font-size: 1.05rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--rosa-intenso);
+        }
+
+        /* === HERO SECTION PERFECTO (INICIO FIJO) === */
+        .hero {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 24px;
+            background: linear-gradient(135deg, var(--rosa-claro) 0%, var(--beige) 100%);
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 12px;
+            line-height: 1.2;
+            color: var(--cereza);
+        }
+
+        .hero p {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.35rem;
+            margin-bottom: 35px;
+            color: var(--texto-oscuro);
+        }
+
+        /* === SECCIONES GLOBALES === */
+        .section-padding {
+            padding: 6rem 6% 5rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.4rem;
+            margin-bottom: 3.5rem;
+        }
+
+        /* === SOBRE NOSOTROS === */
+        .nosotros-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .nosotros-text {
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+
+        .objetivo-box {
+            background: linear-gradient(135deg, var(--blanco) 0%, var(--rosa-claro) 100%);
+            border-left: 5px solid var(--cereza);
+        }
+
+        .objetivo-box i {
+            font-size: 2.5rem;
+            color: var(--rosa-intenso);
+            margin-bottom: 1.2rem;
+        }
+
+        /* === FILOSOFÍA === */
+        .filosofia {
+            background-color: var(--beige);
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 2rem;
+        }
+
+        .valores-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .valores-list li {
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .valores-list i {
+            color: var(--rosa-intenso);
+        }
+
+        /* === CATÁLOGO CON SELECCIÓN MÚLTIPLE === */
+        .slider-catalogo {
+            display: flex;
+            overflow-x: auto;
+            gap: 2rem;
+            padding: 1.5rem 0.5rem;
+        }
+
+        .producto-card {
+            flex: 0 0 290px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .producto-img-placeholder {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(45deg, var(--rosa-claro), var(--beige));
+            border-radius: 18px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--cereza);
+            font-size: 2.5rem;
+        }
+
+        .producto-precio {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--rosa-intenso);
+            margin: 1rem 0;
+        }
+
+        .select-producto-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: #fff;
+            border: 2px solid var(--rosa-claro);
+            padding: 10px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: auto;
+        }
+
+        .select-producto-input {
+            display: none;
+        }
+
+        .producto-card input:checked + .select-producto-label {
+            background-color: var(--rosa-intenso);
+            color: white;
+            border-color: var(--rosa-intenso);
+        }
+
+        .action-container-pedido {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        /* === TRIPLE CARRUSEL INFINITO AUTOMÁTICO (GALERÍA) === */
+        .galeria-carruseles {
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            padding: 1rem 0;
+        }
+
+        .carrusel-track-wrapper {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carrusel-track {
+            display: flex;
+            gap: 1.5rem;
+            width: max-content;
+        }
+
+        /* Tarjetas dentro de la galería */
+        .galeria-box {
+            width: 160px;
+            height: 160px;
+            background: linear-gradient(135deg, var(--beige), var(--rosa-claro));
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--cereza);
+            font-size: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .galeria-box span {
+            font-size: 0.8rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            margin-top: 10px;
+            color: var(--texto-oscuro);
+        }
+
+        /* ANIMACIONES CSS PARA DIRECCIONES */
+        .izq-a-der {
+            animation: desplazarIzqDer 22s linear infinite;
+        }
+
+        .der-a-izq {
+            animation: desplazarDerIzq 22s linear infinite;
+        }
+
+        @keyframes desplazarIzqDer {
+            0% { transform: translateX(-33.33%); }
+            100% { transform: translateX(0); }
+        }
+
+        @keyframes desplazarDerIzq {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-33.33%); }
+        }
+
+        /* Evita pausas al pausar el carrusel con el toque */
+        .carrusel-track:hover {
+            animation-play-state: paused;
+        }
+
+        /* === DISEÑA TU PIEZA === */
+        .disena-section {
+            background: linear-gradient(to bottom, var(--blanco), var(--rosa-claro));
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--cereza);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid transparent;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.8);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--rosa-intenso);
+            background: var(--blanco);
+        }
+
+        /* === FOOTER COMPLETO === */
+        footer {
+            background-color: var(--texto-oscuro);
+            color: var(--blanco);
+            padding: 4rem 6% 2rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h3 {
+            color: var(--rosa-claro);
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-col a, .footer-col p {
+            color: var(--beige);
+            margin-bottom: 0.7rem;
+            display: block;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            font-size: 1.8rem;
+            margin-top: 10px;
+        }
+
+        .social-links a {
+            color: var(--rosa-claro);
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--blanco);
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding-top: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--beige);
+        }
+    </style>
+</head>
+<body class="bloqueado" id="cuerpoPagina">
+
+    <nav>
+        <div class="logo">Cherry Gloss <span style="color: var(--rosa-intenso)">Resin</span></div>
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <div class="nav-links" id="nav-items">
+            <a href="#" onclick="irA('inicio', true)">Inicio</a>
+            <a href="#" onclick="irA('nosotros', false)">Sobre la Empresa</a>
+            <a href="#" onclick="irA('catalogo', false)">Catálogo</a>
+            <a href="#" onclick="irA('galeria', false)">Galería</a>
+            <a href="#" onclick="irA('disena', false)">Personalizar</a>
+        </div>
+    </nav>
+
+    <section id="inicio" class="hero">
+        <h1>Cherry Gloss Resin</h1>
+        <p>La perfección de lo transparente.</p>
+        <div style="display: flex; gap: 15px;">
+            <button class="btn btn-primary" onclick="irA('catalogo', false)">Abrir Catálogo</button>
+        </div>
+    </section>
+
+    <section id="nosotros" class="section-padding">
+        <h2 class="section-title">Sobre la Empresa</h2>
+        <div class="nosotros-container">
+            <div class="nosotros-text">
+                <p>Somos una microempresa dedicada a la elaboración y venta de productos artesanales hechos con resina epóxica, como llaveros, dijes, portarretratos y otros artículos personalizados. Esta idea surge como un proyecto emprendedor que busca convertir los conocimientos aprendidos en una empresa real, bajo el eslogan “La perfección de lo transparente”.</p>
+            </div>
+            
+            <div class="glossy-card objetivo-box">
+                <i class="fa-solid fa-bullseye"></i>
+                <h3>Objetivo Principal</h3>
+                <p>Diseñar y ofrecer productos de resina epóxica personalizados, adaptados a cada mes y a fechas especiales, creando piezas únicas que permitan a nuestros clientes expresar emociones y regalar recuerdos significativos.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding filosofia">
+        <div class="grid-3">
+            <div class="glossy-card">
+                <h3>Misión</h3>
+                <p>Convertir la resina epóxica en arte eterno, creando piezas que guarden historias, emociones y recuerdos especiales para nuestros clientes de la región.</p>
+            </div>
+            
+            <div class="glossy-card">
+                <h3>Visión</h3>
+                <p>Ser una microempresa reconocida en nuestro municipio y comunidades cercanas por la originalidad, calidad y creatividad de nuestras piezas de resina epóxica y consolidarnos como una marca confiable.</p>
+            </div>
+
+            <div class="glossy-card">
+                <h3>Valores</h3>
+                <ul class="valores-list">
+                    <li><i class="fa-solid fa-gem"></i> Calidad</li>
+                    <li><i class="fa-solid fa-handshake"></i> Compromiso</li>
+                    <li><i class="fa-solid fa-clipboard-check"></i> Responsabilidad</li>
+                    <li><i class="fa-solid fa-scale-balanced"></i> Honestidad</li>
+                    <li><i class="fa-solid fa-heart"></i> Lealtad</li>
+                    <li><i class="fa-solid fa-star"></i> Liderazgo</li>
+                    <li><i class="fa-solid fa-shield-halved"></i> Seguridad</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="catalogo" class="section-padding">
+        <h2 class="section-title">Nuestro Catálogo</h2>
+        <div class="slider-catalogo">
+            <div class="glossy-card producto-card">
+                <div class="producto-img-placeholder"><i class="fa-solid fa-key"></i></div>
+                <h3>Llaveros</h3>
+                <p>Lleva tus recuerdos siempre contigo. Personalizables con iniciales.</p>
+                <div class="producto-precio">$150 MXN</div>
+                <input type="checkbox" id="prod-llavero" value="Llavero ($150 MXN)" class="select-producto-input" onchange="actualizarContador()">
+                <label for="prod-llavero" class="select-producto-label"><i class="fa-regular fa-square"></i> Añadir al pedido</label>
+            </div>
+
+            <div class="glossy-card producto-card">
+                <div class="producto-img-placeholder"><i class="fa-regular fa-heart"></i></div>
+                <h3>Dijes</h3>
+                <p>Pequeñas piezas de arte encapsulado para tu estilo diario.</p>
+                <div class="producto-precio">$120 MXN</div>
+                <input type="checkbox" id="prod-dije" value="Dije ($120 MXN)" class="select-producto-input" onchange="actualizarContador()">
+                <label for="prod-dije" class="select-producto-label"><i class="fa-regular fa-square"></i> Añadir al pedido</label>
+            </div>
+
+            <div class="glossy-card producto-card">
+                <div class="producto-img-placeholder"><i class="fa-regular fa-image"></i></div>
+                <h3>Portarretratos</h3>
+                <p>Enmarca tus mejores momentos con un diseño de resina único.</p>
+                <div class="producto-precio">$250 MXN</div>
+                <input type="checkbox" id="prod-porta" value="Portarretratos ($250 MXN)" class="select-producto-input" onchange="actualizarContador()">
+                <label for="prod-porta" class="select-producto-label"><i class="fa-regular fa-square"></i> Añadir al pedido</label>
+            </div>
+        </div>
+
+        <div class="action-container-pedido">
+            <button class="btn btn-primary" onclick="enviarPedidoCompleto()">
+                Enviar Pedido de Catálogo <i class="fa-brands fa-whatsapp"></i>
+            </button>
+        </div>
+    </section>
+
+    <section id="galeria" class="section-padding">
+        <h2 class="section-title">Galería de Diseños</h2>
+        
+        <div class="galeria-carruseles">
+            
+            <div class="carrusel-track-wrapper">
+                <div class="carrusel-track izq-a-der">
+                    <div class="galeria-box"><i class="fa-solid fa-wand-magic-sparkles"></i><span>Brillo Oro</span></div>
+                    <div class="galeria-box"><i class="fa-solid fa-gem"></i><span>Cristalino</span></div>
+                    <div class="galeria-box"><i class="fa-solid fa-leaf"></i><span>Flores Secas</span></div>
+                    <div class="galeria-box"><i class="fa-solid fa-star"></i><span>Estrellas</span></div>
+                    <div class="galeria-box"><i class="fa-solid fa-wand-magic-sparkles"></i><span>Brillo Oro</span></div>
+                    <div class="galeria-box"><i class="fa-solid fa-gem"></i><span>Cristalino</span></div>
+                    <div class="galeria-box"><i class="fa-solid fa-leaf"></i><span>Flores Secas</span></div>
+                    <div class="galeria-box"><i class="fa-solid fa-star"></i><span>Estrellas</span></div>
+                </div>
+            </div>
+
+            <div class="carrusel-track-wrapper">
+                <div class="carrusel-track der-a-izq">
+                    <div class="galeria-box"><i class="fa-solid fa-heart"></i><span>Amor Resina</span></div>
+                    <div class="galeria-box"><i class="fa-solid fa-cloud"></i><span>Efecto Humo</span></div>
+                    <div class="fa-solid galeria-box"><i class="fa-solid fa-bolt"></i><span>Glitter</span></div>
+                    <div class="galeria-box"><i class="fa-solid fa-moon"></i><span>Místico</span></div>
+                    <div class="galeria-box"><i class="fa-solid fa-heart"></i><span>Amor Resina</span></div>
+                    <div class="galeria-box"><i class="fa-solid fa-cloud"></i><span>Efecto Humo</span></div>
+                    <div class="fa-solid galeria-box"><i class="fa-solid fa-bolt"></i><span>Glitter</span></div>
+                    <div class="galeria-box"><i class="fa-solid fa-moon"></i><span>Místico</span></div>
+                </div>
+            </div>
+
+            <div class="carrusel-track-wrapper">
+                <div class="carrusel-track izq-a-der">
+                    <div class="galeria-box"><i class="fa-solid fa-circle-user"></i><span>Iniciales</span></div>
+                    <div class="galeria-box"><i class="fa-solid fa-camera"></i><span>Fotos</span></div>
+                    <div class="galeria-box"><i class="fa-solid fa-palette"></i><span>Pigmentos</span></div>
+                    <div class="galeria-box"><i class="fa-solid fa-gift"></i><span>Regalos</span></div>
+                    <div class="galeria-box"><i class="fa-solid fa-circle-user"></i><span>Iniciales</span></div>
+                    <div class="galeria-box"><i class="fa-solid fa-camera"></i><span>Fotos</span></div>
+                    <div class="galeria-box"><i class="fa-solid fa-palette"></i><span>Pigmentos</span></div>
+                    <div class="galeria-box"><i class="fa-solid fa-gift"></i><span>Regalos</span></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="disena" class="section-padding disena-section">
+        <h2 class="section-title">Diseña tu Pieza Ideal</h2>
+        <div class="glossy-card form-container">
+            <form id="formDiseno">
+                <div class="form-group"><label>Nombre</label><input type="text" id="nombre" class="form-control" required></div>
+                <div class="form-group"><label>Color o detalles</label><input type="text" id="color" class="form-control" required></div>
+                <div class="form-group"><label>Frase o Inicial</label><input type="text" id="frase" class="form-control"></div>
+                <div class="form-group">
+                    <label>Tipo de producto</label>
+                    <select id="tipo" class="form-control" required>
+                        <option value="Llavero">Llavero</option>
+                        <option value="Dije">Dije</option>
+                        <option value="Portarretratos">Portarretratos</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;" onclick="enviarDiseno(event)">Enviar Diseño <i class="fa-brands fa-whatsapp"></i></button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>Cherry Gloss Resin</h3>
+                <p>La perfección de lo transparente.</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://api.whatsapp.com/send?phone=527121739907" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Contacto</h3>
+                <a href="https://api.whatsapp.com/send?phone=527121739907" target="_blank"><i class="fa-brands fa-whatsapp"></i> Ventas: 52 712 173 9907</a>
+                <a href="https://api.whatsapp.com/send?phone=525577131591" target="_blank"><i class="fa-brands fa-whatsapp"></i> Diseño: 52 557 713 1591</a>
+            </div>
+        </div>
+        <div class="copyright"><p>&copy; 2026 Cherry Gloss Resin.</p></div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-items');
+        const cuerpo = document.getElementById('cuerpoPagina');
+
+        // Toggle del menú desplegable
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Función inteligente para navegación controlada y bloqueo dinámico
+        function irA(idSeccion, bloquearScroll) {
+            // Cerrar menú móvil si está desplegado
+            navLinks.classList.remove('active');
+            
+            if (bloquearScroll) {
+                // Si va al inicio, activa el bloqueo estricto
+                cuerpo.className = "bloqueado";
+                document.getElementById(idSeccion).scrollIntoView();
+            } else {
+                // Si va a otra sección, libera el scroll temporalmente y se desplaza
+                cuerpo.className = "desbloqueado";
+                setTimeout(() => {
+                    document.getElementById(idSeccion).scrollIntoView();
+                }, 50);
+            }
+        }
+
+        function actualizarContador() {
+            const checkboxes = document.querySelectorAll('.select-producto-input');
+            checkboxes.forEach(cb => {
+                const label = cb.nextElementSibling;
+                if(cb.checked) {
+                    label.innerHTML = '<i class="fa-solid fa-square-check"></i> ¡Seleccionado!';
+                } else {
+                    label.innerHTML = '<i class="fa-regular fa-square"></i> Añadir al pedido';
+                }
+            });
+        }
+
+        function enviarPedidoCompleto() {
+            const checkboxes = document.querySelectorAll('.select-producto-input:checked');
+            if(checkboxes.length === 0) {
+                alert("Por favor, selecciona productos bro.");
+                return;
+            }
+            let lista = "";
+            checkboxes.forEach((cb, i) => { lista += `${i + 1}. ${cb.value}%0A`; });
+            window.open(`https://api.whatsapp.com/send?phone=527121739907&text=Pedido%20Catálogo:%0A${lista}`, '_blank');
+        }
+
+        function enviarDiseno(e) {
+            e.preventDefault();
+            const n = document.getElementById('nombre').value;
+            const c = document.getElementById('color').value;
+            const f = document.getElementById('frase').value || "Ninguna";
+            const t = document.getElementById('tipo').value;
+            window.open(`https://api.whatsapp.com/send?phone=525577131591&text=Diseño:*%20${t}%0A*Nombre:*%20${n}%0A*Detalles:*%20${c}%0A*Frase:*%20${f}`, '_blank');
+        }
+    </script>
+</body>
+</html>
