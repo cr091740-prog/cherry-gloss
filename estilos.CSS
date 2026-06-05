@@ -1,0 +1,104 @@
+ h2 {
+	font-family: 'Rozha One', serif;
+	letter-spacing: 1px;
+}
+h1 {
+	font-family: 'Playfair Display', serif; 
+	font-size:60px;
+	letter-spacing: 1px;
+}
+h3 {
+	font-family: 'Libre Baskerville', serif; 
+	font-weight: 700;
+}
+p {
+	font-family: 'Poppins', sans-serif; 
+	line-height: 1.6;
+}
+h3 {
+	font-size: 22px;
+	color: #c2185b;
+}
+p {
+	font-size: 17px;
+	color: #333;
+}
+
+.contenido {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-align: justify;
+}
+
+body {
+
+font-family: rozha one, sans-serif;
+
+background-color: #e5dcd3;
+margin: 0;
+padding: 20px;
+
+} 
+
+.titulo {
+
+       text-align: center;
+
+color: #000;
+} 
+.auto{
+
+background: #fff4f4;
+
+margin: 20px auto;
+
+padding: 15px;
+
+border-radius: 10px;
+
+max-width: 900px;
+
+box-shadow: 0 4px 10px 
+rgba(1,1,1,0.1);
+ }
+
+.auto h2 {
+color: Black;
+
+background: #f4d1d8;
+
+
+padding: 10px;
+
+border-radius: 5px;
+} 
+
+.contenido {
+
+display: flex;
+
+justify-content: space-between;
+
+align-items: center;
+
+}
+
+.contenido ul {
+
+
+list-style: none;
+
+padding: 2;
+} 
+.contenido li {
+
+
+margin: 6px 2;
+} 
+
+.contenido img {
+
+width: 300px; 
+border-radius: 10px;
+}

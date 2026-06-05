@@ -1,0 +1,202 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catálogo de Productos</title>
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family: Arial, sans-serif;
+   }
+
+    body{
+        background:#000;
+    }
+
+    header{
+        background:#F4D1D8;
+        color:black;
+        text-align:center;
+        padding:20px;
+    }
+
+    /* SLIDER */
+    .slider{
+        width:90%;
+        max-width:1000px;
+        height:350px;
+        margin:20px auto;
+        overflow:hidden;
+        border-radius:10px;
+        position:relative;
+    }
+
+    .slides{
+        display:flex;
+        width:300%;
+        animation: slide 12s infinite;
+    }
+
+    .slides img{
+        width:100%;
+        height:350px;
+        object-fit:cover;
+    }
+
+    @keyframes slide{
+        0%{margin-left:0;}
+        25%{margin-left:0;}
+
+        30%{margin-left:-100%;}
+        55%{margin-left:-100%;}
+
+        60%{margin-left:-200%;}
+        85%{margin-left:-200%;}
+
+        100%{margin-left:0;}
+    }
+
+    /* PRODUCTOS */
+    .catalogo{
+        width:90%;
+        margin:auto;
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+        gap:20px;
+        padding:20px 0;
+    }
+
+    .producto{
+        background:white;
+        border-radius:10px;
+        overflow:hidden;
+        box-shadow:0 4px 10px rgba(0,0,0,0.2);
+        transition:0.3s;
+    }
+
+    .producto:hover{
+        transform:scale(1.03);
+    }
+
+    .producto img{
+        width:100%;
+        height:220px;
+        object-fit:cover;
+    }
+
+    .info{
+        padding:15px;
+        text-align:center;
+    }
+
+    .info h3{
+        margin-bottom:10px;
+    }
+
+    .precio{
+        color:#0077cc;
+        font-size:22px;
+        font-weight:bold;
+        margin:10px 0;
+    }
+
+    button{
+        background:#0077cc;
+        color:white;
+        border:none;
+        padding:10px 20px;
+        border-radius:5px;
+        cursor:pointer;
+    }
+
+    button:hover{
+        background:#005fa3;
+    }
+
+    footer{
+        background:#222;
+        color:white;
+        text-align:center;
+        padding:15px;
+        margin-top:20px;
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+<link rel="stylesheet" type="text/css" href="estilos.CSS">
+
+    <h1>Catálogo de Productos</h1>
+    <p>Encuentra los mejores productos</p>
+</header>
+<a href="index.html">PÁGINA PRINCIPAL </a>
+<!-- SLIDER -->
+<div class="slider">
+    <div class="slides">
+                <img src="estrellas.jpeg" alt="Imagen 2">
+        <img src="pulseras.jpeg" alt="Imagen 3">
+ 	<img src="esfera.jpeg" alt="Imagen 4">
+
+    </div>
+</div>
+
+<!-- CATALOGO -->
+<section class="catalogo">
+ 
+
+    <div class="producto">
+        <img src="porta.jpeg"alt="Producto">
+        <div class="info">
+            <h3>Portarretratos</h3>
+            <p>Enmarca tus recuerdos en arte. Diseños exclusivos que decoran y emocionan.
+ </p>
+            <div class="precio">$200</div>
+           
+        </div>
+    </div>
+
+    <div class="producto">
+        <img src="llaveros.jpeg" alt="Producto">
+        <div class="info">
+            <h3>Llaveros</h3>
+            <p>Tu detalle favorito, siempre contigo. Resistentes, únicos y personalizables.
+</p>
+                              <div class="precio">$60</div>
+ </div>
+    </div>
+
+    <div class="producto">
+        <img src="aretes.jpeg" alt="Producto">
+        <div class="info">
+            <h3>Aretes</h3>
+            <p>Piezas únicas, ligeras y llenas de color. Hechas a mano para brillar contigo.
+ </p>
+            <div class="precio">$60</div>
+                    </div>
+    </div>
+
+    <div class="producto">
+        <img src="collares.jpeg" alt="Producto">
+        <div class="info">
+            <h3>Collares</h3>
+            <p>Encapsulamos flores, brillo y color en dijes que cuentan tu historia.</p>
+            <div class="precio">$120</div>
+                   </div>
+    </div>
+
+</section>
+
+<footer>
+    <p>Catálogo de Productos © 2026</p>
+</footer>
+
+</body>
+</html>
