@@ -35,7 +35,7 @@ body {
 
 font-family: rozha one, sans-serif;
 
-background-color: #e5dcd3;
+Background-color: #e5dcd3;
 margin: 0;
 padding: 20px;
 
@@ -101,4 +101,31 @@ margin: 6px 2;
 
 width: 300px; 
 border-radius: 10px;
+}
+.boton-contenedor{
+    text-align:center;
+    margin:20px 0;
+}
+
+.boton-contenedor{
+    text-align:center;
+    margin:20px 0;
+}
+
+.boton{
+    display:inline-block;
+    background:#FFB6C1; /* Light Pink */
+    color:#8B005D;
+    padding:12px 25px;
+    text-decoration:none;
+    border-radius:30px;
+    font-family:'Poppins', sans-serif;
+    font-weight:bold;
+    transition:0.3s;
+    box-shadow:0 4px 10px rgba(255,182,193,0.5);
+}
+
+.boton:hover{
+    background:#FFC0CB; /* Rosa pastel */
+    transform:translateY(-3px);
 }
