@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Epóxy Dreams | Catálogo</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#fff0f5,#ffd6e7,#ffc0cb);
+    min-height:100vh;
+}
+
+/* ENCABEZADO */
+header{
+    background:linear-gradient(135deg,#ff9ec4,#f8b4d9);
+    color:white;
+    text-align:center;
+    padding:35px;
+    box-shadow:0 4px 15px rgba(255,105,180,0.4);
+}
+
+header h1{
+    font-size:3rem;
+    margin-bottom:10px;
+    text-shadow:2px 2px 8px rgba(0,0,0,0.2);
+}
+
+header p{
+    font-size:1.2rem;
+    font-style:italic;
+}
+
+h1{
+    text-align: center;
+    color: #ff1493; /* Rosa fuerte */
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 8px rgba(255,20,147,0.3);
+    margin: 20px 0;
+}
+/* BOTÓN PÁGINA PRINCIPAL */
+.menu{
+    text-align:center;
+    margin:20px 0;
+}
+
+.menu a{
+    text-decoration:none;
+    background:#ff69b4;
+    color:white;
+    padding:12px 25px;
+    border-radius:30px;
+    font-weight:bold;
+    transition:.3s;
+    display:inline-block;
+}
+
+.menu a:hover{
+    background:#ff1493;
+    transform:translateY(-3px);
+}
+
+/* FRASE */
+.frase{
+    width:90%;
+    max-width:1000px;
+    margin:20px auto;
+    background:rgba(255,255,255,0.6);
+    backdrop-filter:blur(10px);
+    padding:20px;
+    border-radius:20px;
+    text-align:center;
+    color:#d63384;
+    font-size:1.2rem;
+    box-shadow:0 4px 15px rgba(255,105,180,0.2);
+}
+.frase{
+    text-align: center;
+    color: #d63384;
+    font-size: 0.95rem;
+    font-weight: normal;
+    font-style: italic;
+    margin: 20px auto;
+    padding: 12px;
+    max-width: 700px;
+    line-height: 1.6;
+}
+
+/* SLIDER */
+.slider{
+    width:90%;
+    max-width:1100px;
+    height:400px;
+    margin:30px auto;
+    overflow:hidden;
+    border-radius:20px;
+    box-shadow:0 8px 25px rgba(255,105,180,.4);
+}
+
+.slides{
+    display:flex;
+    width:300%;
+    animation:slide 12s infinite;
+}
+
+.slides img{
+    width:100%;
+    height:400px;
+    object-fit:cover;
+}
+
+@keyframes slide{
+    0%,25%{margin-left:0;}
+    30%,55%{margin-left:-100%;}
+    60%,85%{margin-left:-200%;}
+    100%{margin-left:0;}
+}
+hr{
+    border: none;
+    height: 2px;
+    background: #FF1493;
+    width: 70%;
+    margin: 30px auto;
+    border-radius: 10px;
+}
+
+/* TÍTULO CATÁLOGO */
+.titulo{
+    text-align:center;
+    color:#d63384;
+    margin-top:20px;
+    font-size:2rem;
+}
+
+/* PRODUCTOS */
+.catalogo{
+    width:90%;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+    padding:40px 0;
+}
+
+.producto{
+    background:rgba(255,255,255,0.65);
+    backdrop-filter:blur(10px);
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 8px 20px rgba(255,105,180,0.25);
+    transition:0.4s;
+    border:2px solid rgba(255,255,255,0.4);
+}
+
+.producto:hover{
+    transform:translateY(-10px);
+    box-shadow:0 15px 30px rgba(255,20,147,.35);
+}
+
+.producto img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+}
+
+.info{
+    padding:20px;
+    text-align:center;
+}
+
+.info h3{
+    color:#d63384;
+    margin-bottom:10px;
+    font-size:1.5rem;
+}
+
+.info p{
+    color:#555;
+    line-height:1.6;
+}
+
+.precio{
+    color:#ff1493;
+    font-size:28px;
+    font-weight:bold;
+    margin-top:15px;
+}
+
+/* FOOTER */
+footer{
+    background:#ff69b4;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:30px;
+    box-shadow:0 -4px 10px rgba(255,105,180,0.3);
+}
+.frase-final{
+    color: #ffd1e8;
+    font-style: italic;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1 class="text-align:center;">EPÓXY DREAMS: Belleza Transparente</h1>
+    <p>Creaciones únicas hechas con amor, color y creatividad</p>
+</header>
+
+<div class="menu">
+    <a href="index.html">Página Principal</a>
+</div>
+
+<div class="frase">
+</p>
+<p style="text-align:center;">Transformamos ideas en recuerdos eternos.
+Cada pieza es personalizada y creada especialmente para ti. ✨</p>
+</div>
+
+<!-- SLIDER -->
+<div class="slider">
+    <div class="slides">
+        <img src="estrellas.jpeg" alt="Estrellas de resina">
+        <img src="pulseras.jpeg" alt="Pulseras de resina">
+        <img src="esfera.jpeg" alt="Esfera de resina">
+    </div>
+</div>
+
+<hr>
+
+<h2 class="titulo">"Catálogo" ✨🌸 </h2>
+
+<!-- CATÁLOGO -->
+<section class="catalogo">
+
+    <div class="producto">
+        <img src="porta.jpeg" alt="Portarretratos">
+        <div class="info">
+            <h3>Portarretratos</h3>
+            <p>Enmarca tus recuerdos en arte. Diseños exclusivos que decoran y emocionan.</p>
+            <div class="precio">$200</div>
+        </div>
+    </div>
+
+    <div class="producto">
+        <img src="llaveros.jpeg" alt="Llaveros">
+        <div class="info">
+            <h3>Llaveros</h3>
+            <p>Tu detalle favorito, siempre contigo. Resistentes, únicos y personalizables.</p>
+            <div class="precio">$60</div>
+        </div>
+    </div>
+
+    <div class="producto">
+        <img src="aretes.jpeg" alt="Aretes">
+        <div class="info">
+            <h3>Aretes</h3>
+            <p>Piezas únicas, ligeras y llenas de color. Hechas a mano para brillar contigo.</p>
+            <div class="precio">$60</div>
+        </div>
+    </div>
+
+    <div class="producto">
+        <img src="collares.jpeg" alt="Collares">
+        <div class="info">
+            <h3>Collares</h3>
+            <p>Encapsulamos flores, brillo y color en dijes que cuentan tu historia.</p>
+            <div class="precio">$120</div>
+        </div>
+    </div>
+
+</section>
+
+<footer>
+    <p class="frase-final">
+    "Todo es personalizado, porque cada cliente merece una pieza tan única como su historia."
+      💖
+</p><br></br>
+    <p>Catálogo de Productos - EPO 147</p>
+</footer>
+
+</body>
+</html>
